@@ -1,17 +1,178 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
+
+* { color: white; }
+button:active,button:focus { outline: none; }
+audio:active,audio:focus { outline: none; }
+
 body {
   margin: 0;
-  font-family: "Roboto", sans-serif;
+  font-family: 'Ubuntu', sans-serif;
+  background: #212121;
 }
 
-.App {
-  height: 100vh;
+header {
   width: 100vw;
   display: flex;
   justify-content: center;
+  margin-top: 20px;
 }
 
-.app_container {
-  width: 80%;
-  border: gainsboro solid 1px;
+h1 {
+  width: 85%;
+  height: 10vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgb(39, 39, 39);
+  border-radius: 5px;
+  color: white;
+  font-family: 'Audiowide', cursive;
+  font-size: 4vw;
+}
+
+.container {
+  height: 60vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.primary-btn {
+  width: 15vw;
+  padding: 10px 0 10px 0;
+  border: #0d7377 solid 1px;
+  border-radius: 7px;
+  color: #0d7377;
+  transition: ease-in 0.2s;
+  font-size: 2vw;
+  outline: none;
+}
+
+.primary-btn:hover {
+  background: #0d7377;
+  color: white;
+  transition: ease-in 0.2s;
+  cursor: pointer;
+}
+
+.secondary-btn {
+  padding: 3px 8px 3px 8px;
+  border: #0d7377 solid 1px;
+  border-radius: 5px;
+  color: #0d7377;
+  transition: ease-in 0.2s;
+  font-size: 2vw;
+  outline: none;
+}
+
+.secondary-btn:hover {
+  background: #0d7377;
+  color: white;
+  transition: ease-in 0.2s;
+  cursor: pointer;
+}
+
+.back-btn {
+  padding: 3px 8px 3px 8px;
+  margin-right: 10px;
+  background: #0d7377;
+  border: #0d7377 solid 1px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  color: white;
+  font-size: 2vw;
+  outline: none;
+}
+
+.tab-btn {
+  padding: 3px 8px 3px 8px;
+  margin-right: 10px;
+  background: transparent;
+  border: none;
+  color: #0d7377;
+  /* color: #32e0c4 */;
+  font-size: 2vw;
+  outline: none;
+}
+
+ul {
+  border-bottom: gainsboro solid 1px;
+  margin-top: 20px;
+}
+
+ul .active {
+  padding: 3px 8px 3px 8px;
+  border: #0d7377 solid 1px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  color: #0d7377;
+  font-size: 2vw;
+  outline: none;
+  background: white;
+}
+
+.tab-content {
+  width: 100%;
+  height: 50vh;
+  /* border: gainsboro solid 1px; */
+  overflow-x: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.audio_container {
+  width: 70vw;
+  height: 50vh;
   overflow-y: scroll;
+  border: gainsboro solid 1px;
+}
+
+video {
+  width: 50%;
+  height: auto;
+  border: #0d7377 solid 1px;
+  outline: none;
+}
+
+form {
+  margin-left: 5px;
+  padding: 10px 10px 15px 10px;
+  display: inline;
+  background: rgb(39, 39, 39);
+  border-radius: 5px;
+}
+
+input {
+  font-size: 2vw;
+  color: rgb(29, 29, 29);
+}
+
+#event_form_container button {
+  padding: 2px 8px 2px 8px !important;
+  margin-left: 10px;
+}
+
+.event_list_container {
+  width: 80vw;
+  height: 35vh;
+  border: gainsboro solid 1px;
+  color: white;
+  overflow-x: hidden !important;
+  overflow-y: scroll;
+}
+
+.dropdown-menu {
+  background: rgb(39, 39, 39);
+  color: white;
+}
+
+.dropdown-menu button {
+  background: transparent;
+  border: none;
+  padding: 10px;
+}
+.dropdown-menu button:hover {
+  color: #32e0c4;
 }
