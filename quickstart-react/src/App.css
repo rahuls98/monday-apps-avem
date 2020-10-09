@@ -12,6 +12,7 @@ body {
 }
 
 header {
+  height: 20vh;
   width: 100vw;
   display: flex;
   justify-content: center;
@@ -31,8 +32,39 @@ h1 {
   font-size: 4vw;
 }
 
-.container {
+/* .container {
   height: 60vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} */
+
+.desciption-container {
+  height: 50vh;
+  border-radius: 7px;
+  /* box-shadow: 0px 0px 12px #000000; */
+}
+.desciption-container .nav-link {
+  color: #32e0c4;
+  font-size: 1.5vw;
+}
+.desciption-container .nav-item .active {
+  color: #212121;
+}
+.desciption-container p {
+  height: 50vh;
+  padding: 30px 20px 20px 20px;
+  font-size: 2.3vw;
+  color:#0d7377;
+  background: white;
+  border-bottom-left-radius: 7px;
+  border-bottom-right-radius: 7px;
+}
+.desciption-container p strong {
+  color:#212121;
+}
+
+.button-container {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -48,12 +80,20 @@ h1 {
   font-size: 2vw;
   outline: none;
 }
-
 .primary-btn:hover {
   background: #0d7377;
   color: white;
   transition: ease-in 0.2s;
   cursor: pointer;
+}
+.primary-btn:disabled {
+  border: none;
+  background: grey;
+  color: white;
+} .primary-btn:disabled:hover {
+  background: grey;
+  transition: none;
+  cursor: not-allowed;
 }
 
 .secondary-btn {
@@ -65,7 +105,6 @@ h1 {
   font-size: 2vw;
   outline: none;
 }
-
 .secondary-btn:hover {
   background: #0d7377;
   color: white;
@@ -75,19 +114,16 @@ h1 {
 
 .back-btn {
   padding: 3px 8px 3px 8px;
-  margin-right: 10px;
   background: #0d7377;
   border: #0d7377 solid 1px;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
   color: white;
   font-size: 2vw;
   outline: none;
 }
 
-.tab-btn {
+.editor-container .tab-btn, .preview-container .tab-btn  {
   padding: 3px 8px 3px 8px;
-  margin-right: 10px;
+  margin-top: 10px;
   background: transparent;
   border: none;
   color: #0d7377;
@@ -96,23 +132,20 @@ h1 {
   outline: none;
 }
 
-ul {
+.editor-container ul, .preview-container ul  {
   border-bottom: gainsboro solid 1px;
-  margin-top: 20px;
 }
 
-ul .active {
+.editor-container .nav .active, .preview-container .nav .active  {
   padding: 3px 8px 3px 8px;
   border: #0d7377 solid 1px;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
   color: #0d7377;
   font-size: 2vw;
   outline: none;
   background: white;
 }
 
-.tab-content {
+.special-tab-content {
   width: 100%;
   height: 50vh;
   /* border: gainsboro solid 1px; */
@@ -123,25 +156,28 @@ ul .active {
 }
 
 .audio_container {
-  width: 70vw;
-  height: 50vh;
+  width: 100%;
+  height: 48vh;
   overflow-y: scroll;
-  border: gainsboro solid 1px;
+  border: rgb(31, 31, 31) solid 1px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 12px #00000080;
 }
 
 video {
-  width: 50%;
+  width: 95%;
   height: auto;
   border: #0d7377 solid 1px;
   outline: none;
 }
 
 form {
-  margin-left: 5px;
-  padding: 10px 10px 15px 10px;
+  margin-left: 20px;
+  padding: 20px;
   display: inline;
-  background: rgb(39, 39, 39);
+  border: rgb(31, 31, 31) solid 1px;
   border-radius: 5px;
+  box-shadow: 0px 0px 12px #00000080;
 }
 
 input {
@@ -155,12 +191,12 @@ input {
 }
 
 .event_list_container {
-  width: 80vw;
-  height: 35vh;
-  border: gainsboro solid 1px;
-  color: white;
-  overflow-x: hidden !important;
+  width: 100%;
+  height: 48vh;
   overflow-y: scroll;
+  border: rgb(31, 31, 31) solid 1px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 12px #00000080;
 }
 
 .dropdown-menu {
