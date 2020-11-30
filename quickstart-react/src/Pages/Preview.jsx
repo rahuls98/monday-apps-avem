@@ -65,6 +65,7 @@ class Preview extends React.Component {
 
                 if(Object.keys(out).length > 0) {
                     out.linkedPulseIds.forEach(item => pulseIds.push(item.linkedPulseId));
+                    pulseIds.shift()
                 
                     /** ------ API for getting audio events from subitems ------ */
                     monday.api(

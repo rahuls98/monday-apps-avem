@@ -15,6 +15,7 @@ class Editor extends React.Component {
             slide: 1,
             eventTitle: "",
             eventsList: {},
+            subitem_cols: []
         }
     }
 
@@ -109,9 +110,12 @@ class Editor extends React.Component {
 
     handleSubmitEvents = (e) => {
         e.preventDefault();
+
         Object.keys(this.state.eventsList).forEach(timestamp => {
-            const column_values = { "text": this.state.eventsList[timestamp].timestamp, "text5": this.state.eventsList[timestamp].audio }
-            /** ------ API for new subitem creation ------ */
+            let column_values = {}
+            column_values[`${this.state.subitem_cols[0]}`] = this.state.eventsList[timestamp].timestamp;
+            column_values[`${this.state.subitem_cols[1]}`] = this.state.eventsList[timestamp].audio;
+            
             monday.api(
                 `mutation ($parent_item_id: Int, $item_name: String, $column_values: JSON) {
                     create_subitem(parent_item_id: $parent_item_id, item_name: $item_name, column_values: $column_values) { 
@@ -123,7 +127,7 @@ class Editor extends React.Component {
                     item_name: this.state.eventsList[timestamp].title, 
                     column_values: JSON.stringify(column_values) 
                 }}
-            ).then(res => {
+            ).then(res2 => {
                 this.props.setView({landing: false,editor: false,preview: true})
             });
         })
@@ -299,6 +303,38 @@ class Editor extends React.Component {
             ).then(res => {
                 if((res.data.items[0].assets.length) > 0)
                     this.setState({videoUrl: res.data.items[0].assets[0].public_url})
+            });
+
+            /** ------ API for getting subitem cols ------ */
+            monday.api(
+                `query ($itemId: [Int]) { 
+                    items(ids: $itemId) { 
+                        column_values(ids: "subitems") {
+                            value
+                        } 
+                    } 
+                }`,
+                { variables : { itemId: this.state.context.itemId }}
+            ).then(res1 => {
+                const out = JSON.parse(res1.data.items[0].column_values[0].value);
+                const lpid = out.linkedPulseIds[0].linkedPulseId;
+    
+                monday.api(
+                    `query ($itemId: [Int]) {
+                        items(ids: $itemId) {
+                            column_values {
+                                id
+                            }
+                        }
+                    }`,
+                    {variables : { itemId: lpid }}
+                ).then(res2 => {
+                    let subitem_cols = []
+                    res2.data.items[0].column_values.forEach(col => {
+                        subitem_cols.push(col["id"])
+                    })
+                    this.setState({subitem_cols})
+                })
             });
         });
     };
