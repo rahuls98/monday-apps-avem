@@ -1,3 +1,3 @@
 # monday-apps-avem
 
-Submission to the Monday apps challenge for teams. 
+https://devpost.com/software/avem
